@@ -1,0 +1,99 @@
+#khodam{
+    all:unset;  
+    padding:15px;
+    height: 20px;
+    font-weight: bold;
+    width:150px;;
+    position:absolute;
+    top:70%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background: #16507b;
+    color:black;
+    text-align:center;
+    cursor:pointer;
+    font-size:15px;
+    white-space:nowrap;
+    border-radius:5px;
+    border: 2px solid black;
+    }
+
+body{
+    background-color: #eaeaea;
+}
+
+input{
+    all:unset;  
+    padding:15px;
+    width:50%;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:white;
+    color:black;
+    text-align:center;
+    cursor:pointer;
+    font-size:14px;
+    white-space:nowrap;
+    border-radius:5px;
+    border: 2px solid #16507b;
+}
+
+#ckhodam{
+    all:unset;  
+    padding:15px;
+    height: 20%;
+    width:99%;
+    position:absolute;
+    top:30%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    cursor:pointer;
+    font-size:15px;
+    white-space:nowrap;
+    
+}
+
+::placeholder{
+    color: black;
+}
+
+#clear{
+    all:unset;  
+    padding:15px;
+    height: 20px;
+    font-weight: bold;
+    width:150px;;
+    position:absolute;
+    top:90%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background: #16507b;
+    color:black;
+    text-align:center;
+    cursor:pointer;
+    font-size:15px;
+    white-space:nowrap;
+    border-radius:5px;
+    border: 2px solid black;
+    }
+
+    #pkhname{
+        all:unset;  
+        padding:15px;
+        width:50%;
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        background:white;
+        color:black;
+        text-align:center;
+        cursor:pointer;
+        font-size:14px;
+        white-space:nowrap;
+        border-radius:5px;
+        border: 2px solid #16507b;
+    }
