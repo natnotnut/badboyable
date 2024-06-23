@@ -106,7 +106,7 @@ window.onload = function(){
     var vkhname = localStorage.getItem('khname');
     var vkhx = JSON.parse(localStorage.getItem('khx'));
 
-    if (localStorage.length !== 0){
+    if (!vkhname.length){
         document.getElementById("input-form").innerHTML="<a onclick='khodam()'><p id='pkhname'>Kamu telah memeriksa khodam-mu!<br>Klik untuk lihat Khodam-mu.</p></a>";
     }
 }
