@@ -2,7 +2,7 @@ function login(){
     var usn = document.getElementById("usn").value;
     var pass = document.getElementById("pass").value;
     if(usn=="badboyable" && pass== "kurochiro0705"){
-       window.location.href = "https://donatnutnot.000webhostapp.com/kcask.html"; 
+       window.location.href = "https://natnotnut.github.io/badboyable/beta/kcask.html"; 
     }
     else{
     document.getElementById("notify").innerHTML = "Incorrect Username or Password. Try Again!";
