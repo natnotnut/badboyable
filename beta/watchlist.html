@@ -10,31 +10,35 @@
         table{
             border: 1px solid black;
             border-collapse: collapse;
-            
         }
         #tblh{
-            text-align:center;
+            text-align: center;
         }
         td{
             font-size: 10px;
+            text-align: center;
         }
         th{
             font-size: 12px;
+            cursor: pointer;
         }
     </style>
 </head>
-    <body onload='tbwl()'>
-    <script src='tbwl.js'></script>
-    <script src='main.js'></script>
+<body onload="generateTable()">
+    <script src="tbwl.js"></script>
+    <script src="main.js"></script>
     <header id="header"></header>
     <div id="notice"></div>
-        <table align='center' id='ctbwld' cellpadding='10' border='1' width='90%'>
-        <tr id='tblh'>
-            <th onclick='sortCTable(0)'>Title</th>
-            <th onclick='sortCTable(1)'>Country</th>
-            <th onclick='sortCTable(2)'>Year</th>
-        </tr>
-        </table>
-        <footer id="footer"></footer>
-    </body>
+    <table align="center" id="ctbwld" cellpadding="10" border="1" width="90%">
+        <thead>
+            <tr id="tblh">
+                <th onclick="sortCTable(0)">Title</th>
+                <th onclick="sortCTable(1)">Country</th>
+                <th onclick="sortCTable(2)">Year</th>
+            </tr>
+        </thead>
+        <tbody id="cTableBody"></tbody>
+    </table>
+    <footer id="footer"></footer>
+</body>
 </html>
