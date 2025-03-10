@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>NatNotNut</title>
+    <style>
+        table{
+            border: 1px solid black;
+            border-collapse: collapse;
+            
+        }
+        #tblh{
+            text-align:center;
+        }
+        td{
+            font-size: 10px;
+        }
+        th{
+            font-size: 12px;
+        }
+    </style>
+</head>
+    <body onload='tbwl()'>
+    <script src='tbwl.js'></script>
+    <script src='main.js'></script>
+    <header id="header"></header>
+    <div id="notice"></div>
+        <table align='center' id='ctbwld' cellpadding='10' border='1' width='90%'>
+        <tr id='tblh'>
+            <th onclick='sortCTable(0)'>Title</th>
+            <th onclick='sortCTable(1)'>Country</th>
+            <th onclick='sortCTable(2)'>Year</th>
+        </tr>
+        </table>
+        <footer id="footer"></footer>
+    </body>
+</html>
