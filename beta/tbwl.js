@@ -1,5 +1,3 @@
-// Improved Version of the Drama List Table Code
-
 // Data for the drama list
 const dramas = [
     { title: 'Alchemy of Souls', country: 'South Korea', year: 2022 },
@@ -8,6 +6,8 @@ const dramas = [
     { title: 'Money Heist', country: 'Spain', year: 2017 },
     { title: 'Dark', country: 'Germany', year: 2017 }
 ];
+
+let sortDirection = 1; // 1 for ascending, -1 for descending
 
 // Function to generate the table content
 function generateTable() {
@@ -27,12 +27,16 @@ function generateTable() {
 
 // Function to sort the table by column index
 function sortCTable(columnIndex) {
-    const direction = dramas._sortDirection || 1; // Default to ascending
     dramas.sort((a, b) => {
         const values = [Object.values(a)[columnIndex], Object.values(b)[columnIndex]];
-        return (values[0] > values[1] ? 1 : -1) * direction;
+
+        if (typeof values[0] === 'string') {
+            return values[0].localeCompare(values[1]) * sortDirection;
+        }
+        
+        return (values[0] - values[1]) * sortDirection;
     });
 
-    dramas._sortDirection = -direction; // Toggle sorting direction
+    sortDirection *= -1; // Toggle sorting direction
     generateTable();
 }
