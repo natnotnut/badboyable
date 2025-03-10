@@ -36,6 +36,3 @@ function sortCTable(columnIndex) {
     dramas._sortDirection = -direction; // Toggle sorting direction
     generateTable();
 }
-
-// Generate the table on page load
-window.onload = generateTable;
