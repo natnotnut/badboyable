@@ -27,7 +27,7 @@ const dramas = [
 ];
 
 let sortDirection = 1;
-let itemsPerPage = 10;
+let itemsPerPage = 5;
 let currentPage = 1;
 
 // Function to generate the table content with pagination
