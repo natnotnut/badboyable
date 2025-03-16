@@ -117,6 +117,7 @@ const dramas = [
     { title: 'Girl from Nowhere', country: 'Thailand', year: 2018, type: 'Drama' },
     { title: 'Girl from Nowhere Season 2', country: 'Thailand', year: 2021, type: 'Drama' },
     { title: 'Goblin', country: 'South Korea', year: 2016, type: 'Drama' },
+    { title: 'Hansan: Rising Dragon', country: 'South Korea', year: 2022, type: 'Movie' },
     { title: 'Happiness', country: 'South Korea', year: 2021, type: 'Drama' },
     { title: 'Hard Hit', country: 'South Korea', year: 2021, type: 'Movie' },
     { title: 'He Is Psychometric', country: 'South Korea', year: 2019, type: 'Drama' },
