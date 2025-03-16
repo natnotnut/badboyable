@@ -331,11 +331,11 @@ function watchlistOnLoad() {
     populateFilters(stats);
     filterDramas(stats);
 
+    generateTable();
+    
     document.getElementById('country-filter').addEventListener('change', () => filterDramas(stats));
     document.getElementById('type-filter').addEventListener('change', () => filterDramas(stats));
     document.getElementById('year-filter').addEventListener('change', () => filterDramas(stats));
-
-    generateTable();
 }
 
 
