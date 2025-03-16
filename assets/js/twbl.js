@@ -259,7 +259,8 @@ function calculateStats(dramas) {
         totalEntries: dramas.length,
         byCountry: {},
         byType: {},
-        byYear: {}
+        byYear: {},
+        filteredDramas: dramas // This will be updated by filters
     };
 
     dramas.forEach(drama => {
@@ -276,77 +277,67 @@ function calculateStats(dramas) {
     return stats;
 }
 
-// Function to display statistics with dropdowns
+// Function to display statistics
 function displayStats(stats) {
     const statsDiv = document.getElementById('watch-stats');
     if (!statsDiv) return;
 
-    let html = `<h2>Total Entries: ${stats.totalEntries}</h2>`;
+    let html = `<h2>Total Entries: ${stats.filteredDramas.length}</h2>`;
 
-    // Dropdowns for filtering
-    html += `<label>Country:</label>
-        <select id="country-select">
-            <option value="">All</option>`;
-    for (const country in stats.byCountry) {
-        html += `<option value="${country}">${country}</option>`;
-    }
-    html += `</select>`;
-
-    html += `<label>Type:</label>
-        <select id="type-select">
-            <option value="">All</option>`;
-    for (const type in stats.byType) {
-        html += `<option value="${type}">${type}</option>`;
-    }
-    html += `</select>`;
-
-    html += `<label>Year:</label>
-        <select id="year-select">
-            <option value="">All</option>`;
-    const sortedYears = Object.keys(stats.byYear).sort((a, b) => a - b);
-    sortedYears.forEach(year => {
-        html += `<option value="${year}">${year}</option>`;
+    // Display filtered dramas
+    html += `<h3>Filtered Dramas:</h3><ul>`;
+    stats.filteredDramas.forEach(drama => {
+        html += `<li>${drama.title} (${drama.year}) - ${drama.type}, ${drama.country}</li>`;
     });
-    html += `</select>`;
-
-    html += `<div id="filtered-results"></div>`;
+    html += `</ul>`;
 
     statsDiv.innerHTML = html;
-
-    // Add event listeners for dropdowns
-    document.getElementById('country-select').addEventListener('change', () => filterStats(stats));
-    document.getElementById('type-select').addEventListener('change', () => filterStats(stats));
-    document.getElementById('year-select').addEventListener('change', () => filterStats(stats));
 }
 
-// Function to filter and display results
-function filterStats(stats) {
-    const country = document.getElementById('country-select').value;
-    const type = document.getElementById('type-select').value;
-    const year = document.getElementById('year-select').value;
+// Function to filter dramas based on dropdown selections
+function filterDramas(stats) {
+    const countryFilter = document.getElementById('country-filter').value;
+    const typeFilter = document.getElementById('type-filter').value;
+    const yearFilter = document.getElementById('year-filter').value;
 
-    let filteredCount = stats.totalEntries;
+    stats.filteredDramas = dramas.filter(drama => {
+        const matchesCountry = countryFilter === "" || drama.country === countryFilter;
+        const matchesType = typeFilter === "" || drama.type === typeFilter;
+        const matchesYear = yearFilter === "" || drama.year === parseInt(yearFilter);
+        return matchesCountry && matchesType && matchesYear;
+    });
 
-    if (country) {
-        filteredCount = stats.byCountry[country] || 0;
-    }
+    displayStats(stats);
+}
 
-    if (type) {
-        filteredCount = stats.byType[type] || 0;
-    }
+// Function to populate filters
+function populateFilters(stats) {
+    const countryFilter = document.getElementById('country-filter');
+    const typeFilter = document.getElementById('type-filter');
+    const yearFilter = document.getElementById('year-filter');
 
-    if (year) {
-        filteredCount = stats.byYear[year] || 0;
-    }
+    countryFilter.innerHTML = `<option value="">All Countries</option>` +
+        Object.keys(stats.byCountry).map(country => `<option value="${country}">${country}</option>`).join("");
 
-    const resultsDiv = document.getElementById('filtered-results');
-    resultsDiv.innerHTML = `<h3>Filtered Count: ${filteredCount}</h3>`;
+    typeFilter.innerHTML = `<option value="">All Types</option>` +
+        Object.keys(stats.byType).map(type => `<option value="${type}">${type}</option>`).join("");
+
+    yearFilter.innerHTML = `<option value="">All Years</option>` +
+        Object.keys(stats.byYear).sort((a, b) => a - b).map(year => `<option value="${year}">${year}</option>`).join("");
 }
 
 function watchlistOnLoad() {
     const stats = calculateStats(dramas);
-    displayStats(stats);
+    populateFilters(stats);
+    filterDramas(stats);
+
+    document.getElementById('country-filter').addEventListener('change', () => filterDramas(stats));
+    document.getElementById('type-filter').addEventListener('change', () => filterDramas(stats));
+    document.getElementById('year-filter').addEventListener('change', () => filterDramas(stats));
+
+    generateTable();
 }
+
 
 
 window.onload = watchlistOnLoad;
