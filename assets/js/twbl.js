@@ -107,7 +107,22 @@ const dramas = [
     { title: 'Girl from Nowhere Season 2', country: 'Thailand', year: 2021, type: 'Drama' },
     { title: 'Goblin', country: 'South Korea', year: 2016, type: 'Drama' },
     { title: 'Happiness', country: 'South Korea', year: 2021, type: 'Drama' },
-    { title: 'Hard Hit', country: 'South Korea', year: 2021, type: 'Movie' }
+    { title: 'Hard Hit', country: 'South Korea', year: 2021, type: 'Movie' },
+    { title: 'He Is Psychometric', country: 'South Korea', year: 2019, type: 'Drama' },
+    { title: 'Healer', country: 'South Korea', year: 2014, type: 'Drama' },
+    { title: 'Hi! School - Love On', country: 'South Korea', year: 2014, type: 'Drama' },
+    { title: 'Hidden Identity', country: 'South Korea', year: 2015, type: 'Drama' },
+    { title: 'Hierarchy', country: 'South Korea', year: 2024, type: 'Drama' },
+    { title: 'High School Frenemy', country: 'Thailand', year: 2024, type: 'Drama' },
+    { title: 'High School Return of a Gangster', country: 'South Korea', year: 2024, type: 'Drama' },
+    { title: 'Hijack 1971', country: 'South Korea', year: 2024, type: 'Movie' },
+    { title: 'Hitman: Agent Jun', country: 'South Korea', year: 2020, type: 'Movie' },
+    { title: 'Home School', country: 'Thailand', year: 2023, type: 'Drama' },
+    { title: 'Hormones', country: 'Thailand', year: 2013, type: 'Drama' },
+    { title: 'Hormones Season 2', country: 'Thailand', year: 2014, type: 'Drama' },
+    { title: 'Hormones Season 3', country: 'Thailand', year: 2015, type: 'Drama' },
+    { title: 'Hospital Playlist', country: 'South Korea', year: 2020, type: 'Drama' },
+    { title: 'Hospital Playlist Season 2', country: 'South Korea', year: 2021, type: 'Drama' }
 ];
 
 
