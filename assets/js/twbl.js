@@ -276,42 +276,76 @@ function calculateStats(dramas) {
     return stats;
 }
 
-// Function to display statistics
+// Function to display statistics with dropdowns
 function displayStats(stats) {
     const statsDiv = document.getElementById('watch-stats');
     if (!statsDiv) return;
 
     let html = `<h2>Total Entries: ${stats.totalEntries}</h2>`;
 
-    // Display by Country
-    html += `<h3>By Country:</h3><ul>`;
-    for (const [country, count] of Object.entries(stats.byCountry)) {
-        html += `<li>${country}: ${count}</li>`;
+    // Dropdowns for filtering
+    html += `<label>Country:</label>
+        <select id="country-select">
+            <option value="">All</option>`;
+    for (const country in stats.byCountry) {
+        html += `<option value="${country}">${country}</option>`;
     }
-    html += `</ul>`;
+    html += `</select>`;
 
-    // Display by Type
-    html += `<h3>By Type:</h3><ul>`;
-    for (const [type, count] of Object.entries(stats.byType)) {
-        html += `<li>${type}: ${count}</li>`;
+    html += `<label>Type:</label>
+        <select id="type-select">
+            <option value="">All</option>`;
+    for (const type in stats.byType) {
+        html += `<option value="${type}">${type}</option>`;
     }
-    html += `</ul>`;
+    html += `</select>`;
 
-    // Display by Year
-    html += `<h3>By Year:</h3><ul>`;
+    html += `<label>Year:</label>
+        <select id="year-select">
+            <option value="">All</option>`;
     const sortedYears = Object.keys(stats.byYear).sort((a, b) => a - b);
     sortedYears.forEach(year => {
-        html += `<li>${year}: ${stats.byYear[year]}</li>`;
+        html += `<option value="${year}">${year}</option>`;
     });
-    html += `</ul>`;
+    html += `</select>`;
+
+    html += `<div id="filtered-results"></div>`;
 
     statsDiv.innerHTML = html;
+
+    // Add event listeners for dropdowns
+    document.getElementById('country-select').addEventListener('change', () => filterStats(stats));
+    document.getElementById('type-select').addEventListener('change', () => filterStats(stats));
+    document.getElementById('year-select').addEventListener('change', () => filterStats(stats));
+}
+
+// Function to filter and display results
+function filterStats(stats) {
+    const country = document.getElementById('country-select').value;
+    const type = document.getElementById('type-select').value;
+    const year = document.getElementById('year-select').value;
+
+    let filteredCount = stats.totalEntries;
+
+    if (country) {
+        filteredCount = stats.byCountry[country] || 0;
+    }
+
+    if (type) {
+        filteredCount = stats.byType[type] || 0;
+    }
+
+    if (year) {
+        filteredCount = stats.byYear[year] || 0;
+    }
+
+    const resultsDiv = document.getElementById('filtered-results');
+    resultsDiv.innerHTML = `<h3>Filtered Count: ${filteredCount}</h3>`;
 }
 
 function watchlistOnLoad() {
     const stats = calculateStats(dramas);
     displayStats(stats);
-    generateTable();
 }
 
 
