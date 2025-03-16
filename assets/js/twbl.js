@@ -253,4 +253,66 @@ function changeItemsPerPage(value) {
     generateTable();
 }
 
-window.onload = generateTable;
+// Function to calculate statistics
+function calculateStats(dramas) {
+    const stats = {
+        totalEntries: dramas.length,
+        byCountry: {},
+        byType: {},
+        byYear: {}
+    };
+
+    dramas.forEach(drama => {
+        // Count by Country
+        stats.byCountry[drama.country] = (stats.byCountry[drama.country] || 0) + 1;
+
+        // Count by Type
+        stats.byType[drama.type] = (stats.byType[drama.type] || 0) + 1;
+
+        // Count by Year
+        stats.byYear[drama.year] = (stats.byYear[drama.year] || 0) + 1;
+    });
+
+    return stats;
+}
+
+// Function to display statistics
+function displayStats(stats) {
+    const statsDiv = document.getElementById('watch-stats');
+    if (!statsDiv) return;
+
+    let html = `<h2>Total Entries: ${stats.totalEntries}</h2>`;
+
+    // Display by Country
+    html += `<h3>By Country:</h3><ul>`;
+    for (const [country, count] of Object.entries(stats.byCountry)) {
+        html += `<li>${country}: ${count}</li>`;
+    }
+    html += `</ul>`;
+
+    // Display by Type
+    html += `<h3>By Type:</h3><ul>`;
+    for (const [type, count] of Object.entries(stats.byType)) {
+        html += `<li>${type}: ${count}</li>`;
+    }
+    html += `</ul>`;
+
+    // Display by Year
+    html += `<h3>By Year:</h3><ul>`;
+    const sortedYears = Object.keys(stats.byYear).sort((a, b) => a - b);
+    sortedYears.forEach(year => {
+        html += `<li>${year}: ${stats.byYear[year]}</li>`;
+    });
+    html += `</ul>`;
+
+    statsDiv.innerHTML = html;
+}
+
+function watchlistOnLoad() {
+    const stats = calculateStats(dramas);
+    displayStats(stats);
+    generateTable();
+}
+
+
+window.onload = watchlistOnLoad;
