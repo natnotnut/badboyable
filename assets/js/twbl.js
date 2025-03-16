@@ -1,20 +1,17 @@
-// Data for the drama list
-const dramas = [
-    { title: 'Alchemy of Souls', country: 'South Korea', year: 2022 },
-    { title: 'Crash Landing On You', country: 'South Korea', year: 2019 },
-    { title: 'Squid Game', country: 'South Korea', year: 2021 },
-    { title: 'Money Heist', country: 'Spain', year: 2017 },
-    { title: 'Dark', country: 'Germany', year: 2017 }
-];
+const itemsPerPage = 10;
+let currentPage = 1;
 
-let sortDirection = 1; // 1 for ascending, -1 for descending
-
-// Function to generate the table content
+// Function to generate the table content with pagination
 function generateTable() {
     const tableBody = document.getElementById('cTableBody');
     tableBody.innerHTML = '';
 
-    dramas.forEach(drama => {
+    // Calculate start and end indices for the current page
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = Math.min(startIndex + itemsPerPage, dramas.length);
+
+    for (let i = startIndex; i < endIndex; i++) {
+        const drama = dramas[i];
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${drama.title}</td>
@@ -22,21 +19,31 @@ function generateTable() {
             <td>${drama.year}</td>
         `;
         tableBody.appendChild(row);
-    });
+    }
+
+    generatePagination();
 }
 
-// Function to sort the table by column index
-function sortCTable(columnIndex) {
-    dramas.sort((a, b) => {
-        const values = [Object.values(a)[columnIndex], Object.values(b)[columnIndex]];
+// Function to generate pagination buttons
+function generatePagination() {
+    const pagination = document.getElementById('pagination');
+    pagination.innerHTML = '';
 
-        if (typeof values[0] === 'string') {
-            return values[0].localeCompare(values[1]) * sortDirection;
+    const totalPages = Math.ceil(dramas.length / itemsPerPage);
+
+    for (let i = 1; i <= totalPages; i++) {
+        const button = document.createElement('button');
+        button.textContent = i;
+        button.classList.add('pagination-button');
+        if (i === currentPage) {
+            button.classList.add('active');
         }
-        
-        return (values[0] - values[1]) * sortDirection;
-    });
 
-    sortDirection *= -1; // Toggle sorting direction
-    generateTable();
+        button.addEventListener('click', () => {
+            currentPage = i;
+            generateTable();
+        });
+
+        pagination.appendChild(button);
+    }
 }
