@@ -349,13 +349,17 @@ function updateDramaTable() {
     const selectedType = typeSelect.value;
     const selectedYear = yearSelect.value;
 
-    // Filter dramas based on selected criteria
-    const filteredDramas = dramas.filter(drama => {
-        const matchesCountry = selectedCountry === "All" || drama.country === selectedCountry;
-        const matchesType = selectedType === "All" || drama.type === selectedType;
-        const matchesYear = selectedYear === "All" || drama.year === selectedYear;
-        return matchesCountry && matchesType && matchesYear;
-    });
+    let filteredDramas = dramas;
+
+    if (selectedCountry) {
+        filteredDramas = filteredDramas.filter(drama => drama.country === selectedCountry);
+    }
+    if (selectedType) {
+        filteredDramas = filteredDramas.filter(drama => drama.type === selectedType);
+    }
+    if (selectedYear) {
+        filteredDramas = filteredDramas.filter(drama => drama.year === parseInt(selectedYear));
+    }
 
     // Clear the current table content
     tableBody.innerHTML = "";
