@@ -23,8 +23,7 @@ const dramas = [
     { title: 'Flower of Evil', country: 'South Korea', year: 2020 },
     { title: 'Hometown Cha-Cha-Cha', country: 'South Korea', year: 2021 },
     { title: 'Move to Heaven', country: 'South Korea', year: 2021 },
-    { title: 'Ratched', country: 'United States', year: 2020 },
-    { title: 'The Witcher', country: 'United States', year: 2019 }
+    { title: 'Ratched', country: 'United States', year: 2020 }
 ];
 
 let sortDirection = 1;
