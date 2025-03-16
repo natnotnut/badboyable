@@ -142,7 +142,7 @@ function generateTable() {
         const drama = dramas[i];
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td>${i}</td>
+            <td>${(i+1)}</td>
             <td>${drama.title}</td>
             <td>${drama.country}</td>
             <td>${drama.year}</td>
