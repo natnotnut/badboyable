@@ -63,6 +63,16 @@
 
     <section class="inner-page">
       <div class="container">
+        <div style="text-align: center; margin: 20px;">
+          <label for="entriesPerPage">Show </label>
+          <select id="entriesPerPage" onchange="changeItemsPerPage(this.value)">
+            <option value="10">10 per page</option>
+            <option value="20">20 per page</option>
+            <option value="50">50 per page</option>
+            <option value="100">100 per page</option>
+          </select>
+          <label> entries</label>
+        </div>
         <table align="center" id="ctbwld" cellpadding="10" border="1" width="90%">
           <thead>
             <tr id="tblh">
