@@ -1,29 +1,29 @@
 // Data for the drama list
 const dramas = [
-    { title: 'Alchemy of Souls', country: 'South Korea', year: 2022 },
-    { title: 'Crash Landing On You', country: 'South Korea', year: 2019 },
-    { title: 'Squid Game', country: 'South Korea', year: 2021 },
-    { title: 'Money Heist', country: 'Spain', year: 2017 },
-    { title: 'Dark', country: 'Germany', year: 2017 },
-    { title: 'Kingdom', country: 'South Korea', year: 2019 },
-    { title: 'The Glory', country: 'South Korea', year: 2022 },
-    { title: 'My Name', country: 'South Korea', year: 2021 },
-    { title: 'Elite', country: 'Spain', year: 2018 },
-    { title: 'Stranger', country: 'South Korea', year: 2017 },
-    { title: 'Sky Castle', country: 'South Korea', year: 2018 },
-    { title: 'Healer', country: 'South Korea', year: 2014 },
-    { title: 'Vincenzo', country: 'South Korea', year: 2021 },
-    { title: 'Signal', country: 'South Korea', year: 2016 },
-    { title: 'Hospital Playlist', country: 'South Korea', year: 2020 },
-    { title: 'Itaewon Class', country: 'South Korea', year: 2020 },
-    { title: 'Mr. Sunshine', country: 'South Korea', year: 2018 },
-    { title: 'Sweet Home', country: 'South Korea', year: 2020 },
-    { title: 'Alice in Borderland', country: 'Japan', year: 2020 },
-    { title: 'The Penthouse', country: 'South Korea', year: 2020 },
-    { title: 'Flower of Evil', country: 'South Korea', year: 2020 },
-    { title: 'Hometown Cha-Cha-Cha', country: 'South Korea', year: 2021 },
-    { title: 'Move to Heaven', country: 'South Korea', year: 2021 },
-    { title: 'Ratched', country: 'United States', year: 2020 }
+    { title: 'Alchemy of Souls', country: 'South Korea', year: 2022, type: 'drama' },
+    { title: 'Crash Landing On You', country: 'South Korea', year: 2019, type: 'drama' },
+    { title: 'Squid Game', country: 'South Korea', year: 2021, type: 'drama' },
+    { title: 'Money Heist', country: 'Spain', year: 2017, type: 'drama' },
+    { title: 'Dark', country: 'Germany', year: 2017, type: 'drama' },
+    { title: 'Kingdom', country: 'South Korea', year: 2019, type: 'drama' },
+    { title: 'The Glory', country: 'South Korea', year: 2022, type: 'drama' },
+    { title: 'My Name', country: 'South Korea', year: 2021, type: 'drama' },
+    { title: 'Elite', country: 'Spain', year: 2018, type: 'drama' },
+    { title: 'Stranger', country: 'South Korea', year: 2017, type: 'drama' },
+    { title: 'Sky Castle', country: 'South Korea', year: 2018, type: 'drama' },
+    { title: 'Healer', country: 'South Korea', year: 2014, type: 'drama' },
+    { title: 'Vincenzo', country: 'South Korea', year: 2021, type: 'drama' },
+    { title: 'Signal', country: 'South Korea', year: 2016, type: 'drama' },
+    { title: 'Hospital Playlist', country: 'South Korea', year: 2020, type: 'drama' },
+    { title: 'Itaewon Class', country: 'South Korea', year: 2020, type: 'drama' },
+    { title: 'Mr. Sunshine', country: 'South Korea', year: 2018, type: 'drama' },
+    { title: 'Sweet Home', country: 'South Korea', year: 2020, type: 'drama' },
+    { title: 'Alice in Borderland', country: 'Japan', year: 2020, type: 'drama' },
+    { title: 'The Penthouse', country: 'South Korea', year: 2020, type: 'drama' },
+    { title: 'Flower of Evil', country: 'South Korea', year: 2020, type: 'drama' },
+    { title: 'Hometown Cha-Cha-Cha', country: 'South Korea', year: 2021, type: 'drama' },
+    { title: 'Move to Heaven', country: 'South Korea', year: 2021, type: 'drama' },
+    { title: 'Ratched', country: 'United States', year: 2020, type: 'drama' }
 ];
 
 let sortDirection = 1;
@@ -45,6 +45,7 @@ function generateTable() {
             <td>${drama.title}</td>
             <td>${drama.country}</td>
             <td>${drama.year}</td>
+            <td>${drama.type}</td>
         `;
         tableBody.appendChild(row);
     }
