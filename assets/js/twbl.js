@@ -344,7 +344,7 @@ function updateStats() {
     const dramaListDiv = document.getElementById('drama-list');
     if (dramaListDiv) {
         dramaListDiv.innerHTML = filteredDramas.length > 0 ? 
-            `<ul>${filteredDramas.map(drama => `<li>${drama.name}</li>`).join('')}</ul>` : 
+            `<ul>${filteredDramas.map(drama => `<li>${drama.title}</li>`).join('')}</ul>` : 
             '<p>No Entry Found</p>';
     }
 }
