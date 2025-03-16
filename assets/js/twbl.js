@@ -351,12 +351,19 @@ function updateStats() {
 }
 */
 
+function getStats() {
+    const watchStats = document.getElementById('watch-stats');
+    watchStats.innerHTML = `Total Entries: <b>${dramas.length}</b>`;
+}
+
+
 // Load the statistics on page load
 function watchlistOnLoad() {
     /*
     const stats = calculateStats(dramas);
     displayStats(stats);
     */
+    getStats();
     generateTable();
 }
 
