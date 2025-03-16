@@ -337,6 +337,45 @@ function updateStats() {
     document.getElementById('total-entries').textContent = filteredDramas.length;
 }
 
+function updateDramaTable() {
+    const countrySelect = document.getElementById("country");
+    const typeSelect = document.getElementById("type");
+    const yearSelect = document.getElementById("year");
+    const tableBody = document.getElementById("drama-table-body");
+
+    const selectedCountry = countrySelect.value;
+    const selectedType = typeSelect.value;
+    const selectedYear = yearSelect.value;
+
+    // Filter dramas based on selected criteria
+    const filteredDramas = dramas.filter(drama => {
+        const matchesCountry = selectedCountry === "All" || drama.country === selectedCountry;
+        const matchesType = selectedType === "All" || drama.type === selectedType;
+        const matchesYear = selectedYear === "All" || drama.year === selectedYear;
+        return matchesCountry && matchesType && matchesYear;
+    });
+
+    // Clear the current table content
+    tableBody.innerHTML = "";
+
+    // Populate the table with filtered dramas
+    filteredDramas.forEach(drama => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${drama.title}</td>
+            <td>${drama.country}</td>
+            <td>${drama.type}</td>
+            <td>${drama.year}</td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
+
+// Add event listeners to the dropdowns
+document.getElementById("country").addEventListener("change", updateDramaTable);
+document.getElementById("type").addEventListener("change", updateDramaTable);
+document.getElementById("year").addEventListener("change", updateDramaTable);
+
 // Load the statistics on page load
 function watchlistOnLoad() {
     const stats = calculateStats(dramas);
