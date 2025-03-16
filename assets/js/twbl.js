@@ -330,7 +330,7 @@ function updateStats() {
         filteredDramas = filteredDramas.filter(drama => drama.type === selectedType);
     }
     if (selectedYear) {
-        filteredDramas = filteredDramas.filter(drama => drama.year === selectedYear);
+        filteredDramas = filteredDramas.filter(drama => drama.year === parseInt(selectedYear));
     }
 
     // Update the total entries count
