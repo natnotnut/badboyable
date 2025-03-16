@@ -62,11 +62,16 @@
 
     <section class="inner-page">
       <div class="container">
-        <p align="center">
-            <br><br><br><br><br><br>
-          This page is in development. Try again next time.
-            <br><br><br><br><br><br>
-        </p>
+        <table align="center" id="ctbwld" cellpadding="10" border="1" width="90%">
+          <thead>
+            <tr id="tblh">
+              <th onclick="sortCTable(0)">Title</th>
+              <th onclick="sortCTable(1)">Country</th>
+              <th onclick="sortCTable(2)">Year</th>
+              </tr>
+            </thead>
+          <tbody id="cTableBody"></tbody>
+        </table>
       </div>
     </section>
 
