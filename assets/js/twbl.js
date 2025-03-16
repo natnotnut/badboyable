@@ -285,7 +285,7 @@ function displayStats(stats) {
 
     // Dropdown for Country
     html += `<label for="country-select">By Country:</label>
-        <select id="country-select" onchange="updateFilteredList('country', this.value)">
+        <select id="country-select" onchange="updateStats()">
             <option value="">All</option>`;
     for (const country in stats.byCountry) {
         html += `<option value="${country}">${country} (${stats.byCountry[country]})</option>`;
@@ -294,7 +294,7 @@ function displayStats(stats) {
 
     // Dropdown for Type
     html += `<label for="type-select">By Type:</label>
-        <select id="type-select" onchange="updateFilteredList('type', this.value)">
+        <select id="type-select" onchange="updateStats()">
             <option value="">All</option>`;
     for (const type in stats.byType) {
         html += `<option value="${type}">${type} (${stats.byType[type]})</option>`;
@@ -303,7 +303,7 @@ function displayStats(stats) {
 
     // Dropdown for Year
     html += `<label for="year-select">By Year:</label>
-        <select id="year-select" onchange="updateFilteredList('year', this.value)">
+        <select id="year-select" onchange="updateStats()">
             <option value="">All</option>`;
     const sortedYears = Object.keys(stats.byYear).sort((a, b) => a - b);
     sortedYears.forEach(year => {
@@ -311,32 +311,43 @@ function displayStats(stats) {
     });
     html += `</select>`;
 
-    // Filtered Results
-    html += `<h3>Filtered Results:</h3><ul id="filtered-results"></ul>`;
-
+    // Display filtered stats
+    html += `<div id="filtered-stats"></div>`;
+    
     statsDiv.innerHTML = html;
 }
 
-// Function to filter dramas and update the list
-function updateFilteredList(filterType, filterValue) {
+// Function to filter and update stats based on dropdown selections
+function updateStats() {
+    const selectedCountry = document.getElementById('country-select').value;
+    const selectedType = document.getElementById('type-select').value;
+    const selectedYear = document.getElementById('year-select').value;
+
     let filteredDramas = dramas;
 
-    if (filterType === 'country' && filterValue) {
-        filteredDramas = dramas.filter(drama => drama.country === filterValue);
-    } else if (filterType === 'type' && filterValue) {
-        filteredDramas = dramas.filter(drama => drama.type === filterValue);
-    } else if (filterType === 'year' && filterValue) {
-        filteredDramas = dramas.filter(drama => drama.year === filterValue);
+    if (selectedCountry) {
+        filteredDramas = filteredDramas.filter(drama => drama.country === selectedCountry);
+    }
+    if (selectedType) {
+        filteredDramas = filteredDramas.filter(drama => drama.type === selectedType);
+    }
+    if (selectedYear) {
+        filteredDramas = filteredDramas.filter(drama => drama.year === selectedYear);
     }
 
-    const resultsDiv = document.getElementById('filtered-results');
-    let resultsHtml = '';
-    filteredDramas.forEach(drama => {
-        resultsHtml += `<li>${drama.title} (${drama.year}) - ${drama.type} - ${drama.country}</li>`;
-    });
-    resultsDiv.innerHTML = resultsHtml;
+    const filteredStats = calculateStats(filteredDramas);
+    const filteredStatsDiv = document.getElementById('filtered-stats');
+
+    filteredStatsDiv.innerHTML = `
+        <h3>Filtered Statistics:</h3>
+        <p>Total Entries: ${filteredStats.totalEntries}</p>
+        <p>By Country: ${Object.keys(filteredStats.byCountry).length} countries</p>
+        <p>By Type: ${Object.keys(filteredStats.byType).length} types</p>
+        <p>By Year: ${Object.keys(filteredStats.byYear).length} years</p>
+    `;
 }
 
+// Load the statistics on page load
 function watchlistOnLoad() {
     const stats = calculateStats(dramas);
     displayStats(stats);
