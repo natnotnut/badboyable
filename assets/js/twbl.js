@@ -335,47 +335,9 @@ function updateStats() {
 
     // Update the total entries count
     document.getElementById('total-entries').textContent = filteredDramas.length;
-    updateDramaTable();
     
 }
 
-function updateDramaTable() {
-    const countrySelect = document.getElementById("country-select");
-    const typeSelect = document.getElementById("type-select");
-    const yearSelect = document.getElementById("year-select");
-    const tableBody = document.getElementById("cTableBody");
-
-    const selectedCountry = countrySelect.value;
-    const selectedType = typeSelect.value;
-    const selectedYear = yearSelect.value;
-
-    let filteredDramas = dramas;
-
-    if (selectedCountry) {
-        filteredDramas = filteredDramas.filter(drama => drama.country === selectedCountry);
-    }
-    if (selectedType) {
-        filteredDramas = filteredDramas.filter(drama => drama.type === selectedType);
-    }
-    if (selectedYear) {
-        filteredDramas = filteredDramas.filter(drama => drama.year === parseInt(selectedYear));
-    }
-
-    // Clear the current table content
-    tableBody.innerHTML = "";
-
-    // Populate the table with filtered dramas
-    filteredDramas.forEach(drama => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-            <td>${drama.title}</td>
-            <td>${drama.country}</td>
-            <td>${drama.type}</td>
-            <td>${drama.year}</td>
-        `;
-        tableBody.appendChild(row);
-    });
-}
 
 // Load the statistics on page load
 function watchlistOnLoad() {
