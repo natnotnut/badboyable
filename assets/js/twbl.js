@@ -253,6 +253,7 @@ function changeItemsPerPage(value) {
     generateTable();
 }
 
+/*
 // Function to calculate statistics
 function calculateStats(dramas) {
     const stats = {
@@ -348,11 +349,14 @@ function updateStats() {
             '<p>No Entry Found</p>';
     }
 }
+*/
 
 // Load the statistics on page load
 function watchlistOnLoad() {
+    /*
     const stats = calculateStats(dramas);
     displayStats(stats);
+    */
     generateTable();
 }
 
