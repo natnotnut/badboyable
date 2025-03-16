@@ -143,7 +143,7 @@ function generateTable() {
         const dataNo = i + 1;
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td>${(dataNo)}</td>
+            <td>${dataNo}</td>
             <td>${drama.title}</td>
             <td>${drama.country}</td>
             <td>${drama.year}</td>
