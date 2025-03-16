@@ -289,7 +289,7 @@ function displayStats(stats) {
         <select id="country-select" onchange="updateStats()">
             <option value="">All</option>`;
     for (const country in stats.byCountry) {
-        html += `<option value="${country}">${country} (${stats.byCountry[country]})</option>`;
+        html += `<option value="${country}">${country}</option>`;
     }
     html += `</select>`;
 
@@ -298,7 +298,7 @@ function displayStats(stats) {
         <select id="type-select" onchange="updateStats()">
             <option value="">All</option>`;
     for (const type in stats.byType) {
-        html += `<option value="${type}">${type} (${stats.byType[type]})</option>`;
+        html += `<option value="${type}">${type}</option>`;
     }
     html += `</select>`;
 
@@ -308,7 +308,7 @@ function displayStats(stats) {
             <option value="">All</option>`;
     const sortedYears = Object.keys(stats.byYear).sort((a, b) => a - b);
     sortedYears.forEach(year => {
-        html += `<option value="${year}">${year} (${stats.byYear[year]})</option>`;
+        html += `<option value="${year}">${year}</option>`;
     });
     html += `</select>`;
 
