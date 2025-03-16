@@ -93,3 +93,7 @@ function sortCTable(columnIndex) {
     sortDirection *= -1; // Toggle sorting direction
     generateTable();
 }
+
+
+window.onload = generateTable;
+
