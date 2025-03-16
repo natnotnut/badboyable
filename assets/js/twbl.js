@@ -276,15 +276,16 @@ function calculateStats(dramas) {
     return stats;
 }
 
-// Function to display statistics
+// Function to display statistics with dropdowns
 function displayStats(stats) {
     const statsDiv = document.getElementById('watch-stats');
     if (!statsDiv) return;
 
-    let html = `<h2>Total Entries: ${stats.totalEntries}</h2>`;
+    let html = `
+        <h2>Total Entries: <span id="total-entries">${stats.totalEntries}</span></h2>
 
-    // Dropdown for Country
-    html += `<label for="country-select">By Country:</label>
+        <!-- Dropdown for Country -->
+        <label for="country-select">By Country:</label>
         <select id="country-select" onchange="updateStats()">
             <option value="">All</option>`;
     for (const country in stats.byCountry) {
@@ -311,9 +312,6 @@ function displayStats(stats) {
     });
     html += `</select>`;
 
-    // Display filtered stats
-    html += `<div id="filtered-stats"></div>`;
-    
     statsDiv.innerHTML = html;
 }
 
@@ -335,16 +333,8 @@ function updateStats() {
         filteredDramas = filteredDramas.filter(drama => drama.year === selectedYear);
     }
 
-    const filteredStats = calculateStats(filteredDramas);
-    const filteredStatsDiv = document.getElementById('filtered-stats');
-
-    filteredStatsDiv.innerHTML = `
-        <h3>Filtered Statistics:</h3>
-        <p>Total Entries: ${filteredStats.totalEntries}</p>
-        <p>By Country: ${Object.keys(filteredStats.byCountry).length} countries</p>
-        <p>By Type: ${Object.keys(filteredStats.byType).length} types</p>
-        <p>By Year: ${Object.keys(filteredStats.byYear).length} years</p>
-    `;
+    // Update the total entries count
+    document.getElementById('total-entries').textContent = filteredDramas.length;
 }
 
 // Load the statistics on page load
@@ -354,6 +344,5 @@ function watchlistOnLoad() {
     generateTable();
 }
 
-
-
+// Call the function on page load
 window.onload = watchlistOnLoad;
