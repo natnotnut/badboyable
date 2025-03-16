@@ -149,7 +149,22 @@ const dramas = [
     { title: 'Island Part 2', country: 'South Korea', year: 2023, type: 'Drama' },
     { title: "It's Okay to Not Be Okay", country: 'South Korea', year: 2020, type: 'Drama' },
     { title: 'Itaewon Class', country: 'South Korea', year: 2020, type: 'Drama' },
-    { title: 'Joint Security Area', country: 'South Korea', year: 2000, type: 'Movie' }
+    { title: 'Joint Security Area', country: 'South Korea', year: 2000, type: 'Movie' },
+    { title: 'Jung_E', country: 'South Korea', year: 2023, type: 'Movie' },
+    { title: 'Juvenile Justice', country: 'South Korea', year: 2022, type: 'Drama' },
+    { title: 'Kairos', country: 'South Korea', year: 2020, type: 'Drama' },
+    { title: 'Kill Bok Soon', country: 'South Korea', year: 2023, type: 'Movie' },
+    { title: 'Kimi to Sekai ga Owaru Hi ni', country: 'Japan', year: 2021, type: 'Drama' },
+    { title: 'Kimi to Sekai ga Owaru Hi ni Season 2', country: 'Japan', year: 2021, type: 'Drama' },
+    { title: 'Kimi to Sekai ga Owaru Hi ni Season 3', country: 'Japan', year: 2022, type: 'Drama' },
+    { title: 'Kingdom', country: 'South Korea', year: 2019, type: 'Drama' },
+    { title: 'Kingdom Season 2', country: 'South Korea', year: 2020, type: 'Drama' },
+    { title: 'Law School', country: 'South Korea', year: 2021, type: 'Drama' },
+    { title: 'Lawless Lawyer', country: 'South Korea', year: 2018, type: 'Drama' },
+    { title: 'Left on Read', country: 'Hong Kong', year: 2023, type: 'Drama' },
+    { title: "Let's Fight Ghost", country: 'Thailand', year: 2021, type: 'Drama' },
+    { title: 'Leverage', country: 'South Korea', year: 2019, type: 'Drama' },
+    { title: 'Liar Game', country: 'South Korea', year: 2014, type: 'Drama' }
 ];
 
 
