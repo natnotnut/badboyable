@@ -312,7 +312,11 @@ function displayStats(stats) {
     });
     html += `</select>`;
 
+    // Display the list of drama names
+    html += `<div id="drama-list"></div>`;
+    
     statsDiv.innerHTML = html;
+
 }
 
 // Function to filter and update stats based on dropdown selections
@@ -335,9 +339,15 @@ function updateStats() {
 
     // Update the total entries count
     document.getElementById('total-entries').textContent = filteredDramas.length;
-    
-}
 
+    // Display the list of drama names
+    const dramaListDiv = document.getElementById('drama-list');
+    if (dramaListDiv) {
+        dramaListDiv.innerHTML = filteredDramas.length > 0 ? 
+            `<ul>${filteredDramas.map(drama => `<li>${drama.name}</li>`).join('')}</ul>` : 
+            '<p>No Entry Found</p>';
+    }
+}
 
 // Load the statistics on page load
 function watchlistOnLoad() {
