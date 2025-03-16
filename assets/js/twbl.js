@@ -164,7 +164,22 @@ const dramas = [
     { title: 'Left on Read', country: 'Hong Kong', year: 2023, type: 'Drama' },
     { title: "Let's Fight Ghost", country: 'Thailand', year: 2021, type: 'Drama' },
     { title: 'Leverage', country: 'South Korea', year: 2019, type: 'Drama' },
-    { title: 'Liar Game', country: 'South Korea', year: 2014, type: 'Drama' }
+    { title: 'Liar Game', country: 'South Korea', year: 2014, type: 'Drama' },
+    { title: 'Light Shop', country: 'South Korea', year: 2024, type: 'Drama' },
+    { title: 'Local Hero', country: 'South Korea', year: 2016, type: 'Drama' },
+    { title: 'Longing for You', country: 'South Korea', year: 2023, type: 'Drama' },
+    { title: 'Make Me Shudder', country: 'Thailand', year: 2013, type: 'Movie' },
+    { title: 'Make Me Shudder 2', country: 'Thailand', year: 2014, type: 'Movie' },
+    { title: 'Make Me Shudder 3', country: 'Thailand', year: 2015, type: 'Movie' },
+    { title: 'Marry My Husband', country: 'South Korea', year: 2024, type: 'Drama' },
+    { title: 'May Who?', country: 'Thailand', year: 2015, type: 'Movie' },
+    { title: 'Melancholia', country: 'South Korea', year: 2021, type: 'Drama' },
+    { title: 'Melting Me Softly', country: 'South Korea', year: 2019, type: 'Drama' },
+    { title: 'Memories of the Alhambra', country: 'South Korea', year: 2018, type: 'Drama' },
+    { title: 'Memorist', country: 'South Korea', year: 2020, type: 'Drama' },
+    { title: 'Midnight', country: 'South Korea', year: 2021, type: 'Movie' },
+    { title: 'Midnight Museum', country: 'Thailand', year: 2023, type: 'Drama' },
+    { title: 'Midnight Runners', country: 'South Korea', year: 2017, type: 'Movie' }
 ];
 
 
