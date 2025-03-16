@@ -140,9 +140,10 @@ function generateTable() {
 
     for (let i = startIndex; i < endIndex; i++) {
         const drama = dramas[i];
+        const dataNo = i + 1;
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td>${(i+1)}</td>
+            <td>${(dataNo)}</td>
             <td>${drama.title}</td>
             <td>${drama.country}</td>
             <td>${drama.year}</td>
