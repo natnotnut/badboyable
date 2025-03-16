@@ -134,7 +134,22 @@ const dramas = [
     { title: 'Hormones Season 2', country: 'Thailand', year: 2014, type: 'Drama' },
     { title: 'Hormones Season 3', country: 'Thailand', year: 2015, type: 'Drama' },
     { title: 'Hospital Playlist', country: 'South Korea', year: 2020, type: 'Drama' },
-    { title: 'Hospital Playlist Season 2', country: 'South Korea', year: 2021, type: 'Drama' }
+    { title: 'Hospital Playlist Season 2', country: 'South Korea', year: 2021, type: 'Drama' },
+    { title: 'Hospital Ship', country: 'South Korea', year: 2017, type: 'Drama' },
+    { title: 'Hostage: Missing Celebrity', country: 'South Korea', year: 2021, type: 'Movie' },
+    { title: 'Hwarang', country: 'South Korea', year: 2016, type: 'Drama' },
+    { title: 'I Hear Your Voice', country: 'South Korea', year: 2013, type: 'Drama' },
+    { title: "I'm Tee, Me Too", country: 'Thailand', year: 2020, type: 'Drama' },
+    { title: 'Imawa no Kuni no Alice', country: 'Japan', year: 2020, type: 'Drama' },
+    { title: 'Imawa no Kuni no Alice Season 2', country: 'Japan', year: 2022, type: 'Drama' },
+    { title: 'In Our Prime', country: 'South Korea', year: 2022, type: 'Movie' },
+    { title: 'Inside Men', country: 'South Korea', year: 2015, type: 'Movie' },
+    { title: 'Introverted Boss', country: 'South Korea', year: 2017, type: 'Drama' },
+    { title: 'Island', country: 'South Korea', year: 2022, type: 'Drama' },
+    { title: 'Island Part 2', country: 'South Korea', year: 2023, type: 'Drama' },
+    { title: "It's Okay to Not Be Okay", country: 'South Korea', year: 2020, type: 'Drama' },
+    { title: 'Itaewon Class', country: 'South Korea', year: 2020, type: 'Drama' },
+    { title: 'Joint Security Area', country: 'South Korea', year: 2000, type: 'Movie' }
 ];
 
 
