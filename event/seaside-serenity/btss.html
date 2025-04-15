@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+    <title>NatNotNut</title>
+    <meta content="Personal website of @badboyable" name="description">
+    <meta content="" name="keywords">
+  
+    <!-- Icons -->
+    <link href="assets/img/titleicon.jpeg" rel="icon">
+    <link href="assets/img/titleicon.jpeg" rel="apple-touch-icon">
+  
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  
+    <!-- Vendor Assets-->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  
+    <!-- Main CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Courier New', monospace;
+      overflow-x: hidden;
+    }
+
+    .background-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+      transition: opacity 1s ease-in-out;
+      z-index: -2;
+    }
+
+    .background-layer.hidden {
+      opacity: 0;
+    }
+
+    .inner-page {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+      padding: 0 20px;
+    }
+
+    #typewriter {
+      font-size: 2rem;
+      color: black;
+      text-align: center;
+      white-space: normal;  /* Allow text to wrap */
+      overflow: hidden;
+      border-right: 2px solid black;
+      text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+      max-width: 100%;
+      word-wrap: break-word; /* Allow breaking of long words */
+      width: 100%;  /* Allow the text container to be flexible */
+      word-break: break-word; /* Prevent long words from overflowing */
+    }
+
+    .play-btn {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      padding: 12px 25px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s;
+      z-index: 10; /* Ensure the button is above other elements */
+    }
+
+    .play-btn:hover {
+      background-color: #0056b3;
+    }
+
+    /* Media Queries for mobile responsiveness */
+    @media (max-width: 768px) {
+      #typewriter {
+        font-size: 1.5rem; /* Adjusted font size */
+      }
+
+      .play-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #typewriter {
+        font-size: 1.2rem; /* Even smaller font for small screens */
+      }
+
+      .play-btn {
+        padding: 8px 18px;
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+    <!-- Header -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="https://natnotnut.github.io/badboyable">NatNotNut</a></h1>
+
+
+    </div>
+  </header>
+  <!-- End Header -->
+
+  <!-- Two background layers for crossfade -->
+  <div id="bg1" class="background-layer"></div>
+  <div id="bg2" class="background-layer hidden"></div>
+
+  <section class="inner-page">
+    <p id="typewriter"></p>
+  </section>
+
+  <!-- Background Music -->
+  <audio id="backgroundMusic" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Floating Play Music Button -->
+  <button class="play-btn" onclick="toggleMusic()">Play Music</button>
+
+  <script>
+    const messages = [
+      "This sentence #0. Testing sentence...",
+      "This sentence #1. Testing sentence...",
+      "This sentence #2. Testing sentence...",
+      "This sentence #3. Testing sentence...",
+      "This sentence #4. Testing sentence...",
+      "This sentence #5. Testing sentence...",
+      "This sentence #6. Testing sentence...",
+      "This sentence #7. Testing sentence...",
+      "This sentence #8. Testing sentence...",
+      "This sentence #9. Testing sentence...",
+      "This sentence #10. Testing sentence...",
+      "This sentence #11. Testing sentence...",
+      "This sentence #12. Testing sentence...",
+      "This sentence #13. Testing sentence...",
+      "This sentence #15. Testing sentence..."
+    ];
+
+    const backgrounds = [
+      "https://picsum.photos/id/1015/1600/900",
+      "https://picsum.photos/id/1016/1600/900",
+      "https://picsum.photos/id/1018/1600/900",
+      "https://picsum.photos/id/1020/1600/900"
+    ];
+
+    const typewriter = document.getElementById("typewriter");
+    const bg1 = document.getElementById("bg1");
+    const bg2 = document.getElementById("bg2");
+    const backgroundMusic = document.getElementById("backgroundMusic");
+    const playButton = document.querySelector(".play-btn");
+
+    let messageIndex = 0;
+    let charIndex = 0;
+    let activeBg = 1;
+
+    // Array specifying after which sentence the background should change
+    const sentenceChangeIndexes = [1, 4, 8, 10, 11, 13];
+    let backgroundIndex = 0;  // This is the index for backgrounds, independent of message index
+
+    const typeSpeed = 100;
+    const delayBetweenTexts = 2000;
+
+    function changeBackground(url) {
+      if (activeBg === 1) {
+        bg2.style.backgroundImage = `url(${url})`;
+        bg2.classList.remove("hidden");
+        bg1.classList.add("hidden");
+        activeBg = 2;
+      } else {
+        bg1.style.backgroundImage = `url(${url})`;
+        bg1.classList.remove("hidden");
+        bg2.classList.add("hidden");
+        activeBg = 1;
+      }
+    }
+
+    function typeMessage() {
+      const currentMessage = messages[messageIndex];
+      if (charIndex < currentMessage.length) {
+        typewriter.textContent += currentMessage.charAt(charIndex);
+        charIndex++;
+        setTimeout(typeMessage, typeSpeed);
+      } else {
+        setTimeout(() => {
+          charIndex = 0;
+          messageIndex = (messageIndex + 1) % messages.length;
+          typewriter.textContent = "";
+          
+          // Change background based on the sentence change index
+          if (sentenceChangeIndexes.includes(messageIndex)) {
+            changeBackground(backgrounds[backgroundIndex]);
+            backgroundIndex = (backgroundIndex + 1) % backgrounds.length;  // Update the background index
+          }
+
+          setTimeout(typeMessage, typeSpeed);
+        }, delayBetweenTexts);
+      }
+    }
+
+    // Toggle play/pause of the background music
+    function toggleMusic() {
+      if (backgroundMusic.paused) {
+        backgroundMusic.play();
+        playButton.textContent = "Pause Music";
+      } else {
+        backgroundMusic.pause();
+        playButton.textContent = "Play Music";
+      }
+    }
+
+    // Initialize
+    bg1.style.backgroundImage = `url(${backgrounds[backgroundIndex]})`;
+    typeMessage();
+  </script>
+
+</body>
+</html>
